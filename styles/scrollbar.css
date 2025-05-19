@@ -1,0 +1,40 @@
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.custom-scrollbar:not(.scrolling)::-webkit-scrollbar {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* If Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.custom-scrollbar:not(.scrolling) {
+  scrollbar-width: none;
+}
+
+/* New class added specifically to prevent swipe-to-hide */
+.no-swipe-hide {
+  /* Block browser handling of any panning and zooming gestures except vertical panning */
+  touch-action: pan-y !important;
+  /* Prevent overscroll effects on iOS */
+  -webkit-overflow-scrolling: touch;
+  /* Custom property to force hardware acceleration */
+  transform: translateZ(0);
+}
